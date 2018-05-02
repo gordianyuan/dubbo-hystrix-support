@@ -21,8 +21,8 @@
 | 参数        | 说明           | 默认值  |
 | ------------- |:-------------:| -----:|
 | coreSize      | 核心线程数大小 | 10 |
-| maximumSize      | 空闲线程持有时间（分钟）      |   20 |
-| keepAliveTimeMinutes | 最大线程数大小      |    1 |
+| maximumSize      | 最大线程数大小 |   20 |
+| keepAliveTimeMinutes | 空闲线程持有时间（分钟）|    1 |
 
 # 信号量隔离
 将自定义属性 isolation 为设置 SEMAPHORE 进行信号量隔离
@@ -55,8 +55,8 @@ isolation属性：
 | 参数        | 说明           | 默认值  |   备注      |
 | ------------- |:-------------| :---- |:---- |
 | requestVolumeThreshold      | 熔断判断请求数阈值 | 20 |一个统计周期内（默认10秒）请求不少于requestVolumeThreshold才会进行熔断判断 |
-| sleepWindowInMilliseconds     | 熔断触发错误率阈值      |   5000 | 超过50%错误触发熔断|
-| errorThresholdPercentage | 熔断触发后多久恢复half-open状态     |    50 |熔断后sleepWindowInMilliseconds毫秒会放入一个请求，如果请求处理成功，熔断器关闭，否则熔断器打开，继续等待sleepWindowInMilliseconds |
+| errorThresholdPercentage    | 熔断触发错误率阈值 |   50 | 超过50%错误触发熔断|
+| sleepWindowInMilliseconds   | 熔断触发后多久恢复half-open状态     |    5000 |熔断后sleepWindowInMilliseconds毫秒会放入一个请求，如果请求处理成功，熔断器关闭，否则熔断器打开，继续等待sleepWindowInMilliseconds |
 | timeoutInMilliseconds | 任务执行超时时间       |    1000 | 注意该时间和dubbo自己的超时时间不要冲突，以这个时间优先，比如consumer设置3秒，那么当执行时hystrix会提前超时 |
 
 # 服务降级
